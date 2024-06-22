@@ -1,0 +1,95 @@
+@import url('https://fonts.googleapis.com/css2?family=Playwrite+AU+TAS:wght@100..400&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap');
+:root{
+    --cursive-font:"Playwrite AU TAS", cursive;
+    --body-font:"Raleway", sans-serif;
+    --color1:#14141E;
+}
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+html{
+    font-size: 62.5%;
+    overflow-x: hidden;
+}
+body,html{
+    height: 100%;
+    width: 100%;
+}
+body{
+    background-color: #F4F5F0;
+    transition: all ease-in 5s;
+    -webkit-transition: all ease-in 5s;
+    -moz-transition: all ease-in 5s;
+    -ms-transition: all ease-in 5s;
+    -o-transition: all ease-in 5s;
+}
+.nav{
+    margin: 2rem 3rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.logo{
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+.logo>img{
+    width: 2rem;
+}
+.logo>h1{
+    font-size: 3rem;
+    font-family: var(--body-font);
+    color: rgb(75, 75, 75);
+    font-weight: 600;
+}
+.small-screen-nav{
+    display: none;
+}
+.menu{
+    display: flex;
+    align-items: center;
+    gap: 3rem;
+}
+.menu>a{
+    text-decoration: none;
+    font-size: 2rem;
+    color: rgb(99, 99, 99);
+    font-family: var(--body-font);
+    font-weight: 400;
+}
+.menu>a:hover{
+    color: rgb(36, 36, 36);
+}
+.search{
+    position: relative;
+}
+.search>i{
+    font-size: 2rem;
+    color: rgb(99, 99, 99);
+    cursor: pointer;
+}
+.search>i:hover{
+    color: rgb(36, 36, 36);
+}
+.input-bar{
+    position: absolute;
+    top: -50%;
+    right: -40rem;
+    border-radius: 20px;
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+    -ms-border-radius: 20px;
+    -o-border-radius: 20px;
+    padding: 1rem 2rem;
+    font-size: 1.5rem;
+    border: 2px solid rgb(216, 215, 215);
+}
+.input-bar.active{
+   right: -0.8rem;
+}
+.input-bar:hover{
+    border: 2px solid rgb(115, 114, 114);
+}
