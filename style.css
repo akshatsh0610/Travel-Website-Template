@@ -32,6 +32,7 @@ body{
     justify-content: space-between;
 }
 .logo{
+    flex: 1;
     display: flex;
     align-items: center;
     gap: 1rem;
@@ -49,6 +50,7 @@ body{
     display: none;
 }
 .menu{
+    flex: 2;
     display: flex;
     align-items: center;
     gap: 3rem;
@@ -64,20 +66,26 @@ body{
     color: rgb(36, 36, 36);
 }
 .search{
-    position: relative;
+    flex: 0;
 }
-.search>i{
+.search-icon{
     font-size: 2rem;
     color: rgb(99, 99, 99);
     cursor: pointer;
 }
-.search>i:hover{
+.search-icon:hover,.cross-icon:hover{
     color: rgb(36, 36, 36);
 }
-.input-bar{
+.search-box{
+    display: flex;
     position: absolute;
-    top: -50%;
+    top: 1.8rem;
     right: -40rem;
+}
+.search-box.active{
+    right: 1rem;
+}
+.input-bar{
     border-radius: 20px;
     -webkit-border-radius: 20px;
     -moz-border-radius: 20px;
@@ -87,9 +95,18 @@ body{
     font-size: 1.5rem;
     border: 2px solid rgb(216, 215, 215);
 }
-.input-bar.active{
-   right: -0.8rem;
+.cross-icon{
+    position: absolute;
+    top: 1rem;
+    left: 85%;
+    font-size: 2rem;
+    color: rgb(99, 99, 99);
+    cursor: pointer;
+}
+.search-box.active{
+   right: 2.2rem;
 }
 .input-bar:hover{
     border: 2px solid rgb(115, 114, 114);
 }
+
