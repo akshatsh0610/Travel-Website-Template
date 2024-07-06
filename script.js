@@ -1,51 +1,60 @@
-const searchIcon=document.querySelector('.search-icon');
-const searchBox=document.querySelector('.search-box');
-const crossIcon=document.querySelector('.cross-icon');
-var tl1=gsap.timeline();
-var tl2=gsap.timeline();
-searchIcon.addEventListener('click',()=>{
+var searchBtn=document.querySelector(".search-btn");
+var searchInput=document.querySelector(".search-input");
+var icon = searchBtn.querySelector('i');
+var mobileNav=document.querySelector('.small-screen-nav');
+var bars=mobileNav.querySelector('i');
+var mobileMenu=document.querySelector('.small-screen-menu');
+searchBtn.addEventListener("click",()=>{
     event.preventDefault();
-    tl1.to(searchIcon,{
-        duration:0.8,
-        opacity:0,
-        rotation:360,
-        ease:"power2.out",
-    })
-    tl1.to(searchBox,{
-        opacity:1,
-        duration:0.3,
-        ease:"power2.out",
-        onComplete:()=>{
-            searchBox.classList.toggle('active');
-        }
-    })
-    tl1.to(crossIcon,{
-        duration:0.8,
-        opacity:1,
-        rotation:-360,
-        ease:"power2.out"
-    })
+    var windowWidth = window.innerWidth;
+    var inputWidth = windowWidth <=992 ? 120 : 180;
+    if(icon.classList.contains('fa-magnifying-glass')){
+        gsap.to(searchInput,{
+            width:inputWidth,
+            duration:0.3,
+            opacity: 1,
+            ease: 'power2.inOut',
+            onComplete:()=>{
+                icon.classList.remove("fa-magnifying-glass")
+                icon.classList.add("fa-xmark");
+            }
+        })
+    }
+    else{
+        gsap.to(searchInput,{
+            width:0,
+            duration:0.3,
+            opacity: 1,
+            ease: 'power2.inOut',
+            onComplete:()=>{
+                icon.classList.add("fa-magnifying-glass")
+                icon.classList.remove("fa-xmark");
+            }
+        })
+    }
 })
-crossIcon.addEventListener('click',()=>{
+bars.addEventListener("click",()=>{
     event.preventDefault();
-    tl2.to(crossIcon,{
-        duration:0.8,
-        rotation:360,
-        opacity:0,
-        ease:"power2.out",
-    })
-    tl2.to(searchBox,{
-        opacity:0,
-        duration:0.3,
-        ease:"power2.out",
-        onComplete:()=>{
-            searchBox.classList.toggle('active');
-        }
-    })
-    tl2.to(searchIcon,{
-        duration:0.8,
-        opacity:1,
-        rotation:-360,
-        ease: "power2.out",
-    })
+    if(bars.classList.contains('fa-bars')){
+        gsap.to(mobileMenu,{
+            opacity:1,
+            duration:0.3,
+            ease: 'power2.inOut',
+            onComplete:()=>{
+                bars.classList.add("fa-xmark");
+                bars.classList.remove("fa-bars");
+            }
+        })
+    }
+    else{
+        gsap.to(mobileMenu,{
+            opacity:1,
+            duration:0.3,
+            ease: 'power2.inOut',
+            onComplete:()=>{
+                bars.classList.remove("fa-xmark");
+                bars.classList.add("fa-bars");
+            }
+        })
+    }
 })

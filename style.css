@@ -32,7 +32,6 @@ body{
     justify-content: space-between;
 }
 .logo{
-    flex: 1;
     display: flex;
     align-items: center;
     gap: 1rem;
@@ -47,10 +46,66 @@ body{
     font-weight: 600;
 }
 .small-screen-nav{
+    /* position: relative; */
     display: none;
+    font-size:2.5rem;
+}
+.fa-bars{
+    position: absolute;
+    top: 2.5rem;
+    right: 3%;
+}
+.small-screen-menu{
+    position: absolute;
+    top: 3.5rem;
+    height: 500px;
+    width: fit-content;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1.5rem;
+}
+.small-screen-search{
+    display: inline-flex;
+    align-items: center;
+    background-color: black;
+    color: black;
+    padding: 1rem;
+    border-radius: 4rem;
+    -webkit-border-radius: 4rem;
+    -moz-border-radius: 4rem;
+    -ms-border-radius: 4rem;
+    -o-border-radius: 4rem;
+}
+.small-screen-search :is(input, i) {
+    border: none;
+    background: transparent;
+    outline: none;
+    font-size: 1.4rem;
+}
+.small-screen-search>i {
+    display: grid;
+    place-items: center;
+    width: 2.5rem;
+    height: 2.5rem;
+    cursor: pointer;
+    color: whitesmoke;
+    transition: color 0.25s;
+}
+.menu-items{
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+.menu-items>a{
+    text-decoration: none;
+    color: rgb(99, 99, 99);
+}
+.menu-items>a:hover{
+    color: rgb(36, 36, 36);
 }
 .menu{
-    flex: 2;
     display: flex;
     align-items: center;
     gap: 3rem;
@@ -65,48 +120,54 @@ body{
 .menu>a:hover{
     color: rgb(36, 36, 36);
 }
-.search{
-    flex: 0;
-}
-.search-icon{
-    font-size: 2rem;
-    color: rgb(99, 99, 99);
-    cursor: pointer;
-}
-.search-icon:hover,.cross-icon:hover{
-    color: rgb(36, 36, 36);
-}
 .search-box{
-    display: flex;
-    position: absolute;
-    top: 1.8rem;
-    right: -40rem;
+    display: inline-flex;
+    align-items: center;
+    background-color: black;
+    color: black;
+    padding: 1rem;
+    border-radius: 4rem;
+    -webkit-border-radius: 4rem;
+    -moz-border-radius: 4rem;
+    -ms-border-radius: 4rem;
+    -o-border-radius: 4rem;
 }
-.search-box.active{
-    right: 1rem;
+.search-box :is(input, button) {
+    border: none;
+    background: transparent;
+    outline: none;
+    font-size: 1.4rem;
 }
-.input-bar{
-    border-radius: 20px;
-    -webkit-border-radius: 20px;
-    -moz-border-radius: 20px;
-    -ms-border-radius: 20px;
-    -o-border-radius: 20px;
-    padding: 1rem 2rem;
-    font-size: 1.5rem;
-    border: 2px solid rgb(216, 215, 215);
+.search-input {
+    width: 0;
+    transition: width 0.5s;
 }
-.cross-icon{
-    position: absolute;
-    top: 1rem;
-    left: 85%;
-    font-size: 2rem;
-    color: rgb(99, 99, 99);
+
+.search-btn {
+    display: grid;
+    place-items: center;
+    width: 2.5rem;
+    height: 2.5rem;
     cursor: pointer;
+    color: whitesmoke;
+    transition: color 0.25s;
 }
-.search-box.active{
-   right: 2.2rem;
+.search-btn:hover {
+    color: #e3e3e3;
 }
-.input-bar:hover{
-    border: 2px solid rgb(115, 114, 114);
+/* on screens 900 and less*/
+@media screen and (max-width:992px) {
+    html{
+        font-size: 45%;
+    }
+} 
+@media screen and (max-width:722px) {
+    .menu,.search{
+        display: none;
+    }
+    .small-screen-nav{
+        display: flex;
+    }
 }
+  
 
